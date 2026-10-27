@@ -16,6 +16,9 @@
   --saffron: #d99a1e;
   --saffron-soft: #fbefd3;
   --on-spruce: #f4faf7;
+  --lv1: #3a9a63; --lv1-soft: #e2f1e7; --lv1-ink: #23683f;
+  --lv2: #d99a1e; --lv2-soft: #fbefd3; --lv2-ink: #8a5d06;
+  --lv3: #d0583f; --lv3-soft: #fbe3dc; --lv3-ink: #9c3520;
 
   --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
   --font-body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
@@ -32,13 +35,13 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #111a1d; --surface: #182428; --ink: #e6eeeb; --muted: #9db0ad; --line: #2b3b3f;
-    --spruce: #6cc0b2; --spruce-soft: #1d3633; --saffron: #f0b94a; --saffron-soft: #3a2f17; --on-spruce: #0e1a19;
+    --spruce: #6cc0b2; --spruce-soft: #1d3633; --saffron: #f0b94a; --saffron-soft: #3a2f17; --on-spruce: #0e1a19; --lv1: #5cc489; --lv1-soft: #19352a; --lv1-ink: #8fdcae; --lv2: #f0b94a; --lv2-soft: #3a2f17; --lv2-ink: #f5cf7f; --lv3: #ec7b62; --lv3-soft: #3d221c; --lv3-ink: #f4a693;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --bg: #111a1d; --surface: #182428; --ink: #e6eeeb; --muted: #9db0ad; --line: #2b3b3f;
-  --spruce: #6cc0b2; --spruce-soft: #1d3633; --saffron: #f0b94a; --saffron-soft: #3a2f17; --on-spruce: #0e1a19;
+  --spruce: #6cc0b2; --spruce-soft: #1d3633; --saffron: #f0b94a; --saffron-soft: #3a2f17; --on-spruce: #0e1a19; --lv1: #5cc489; --lv1-soft: #19352a; --lv1-ink: #8fdcae; --lv2: #f0b94a; --lv2-soft: #3a2f17; --lv2-ink: #f5cf7f; --lv3: #ec7b62; --lv3-soft: #3d221c; --lv3-ink: #f4a693;
   color-scheme: dark;
 }
 
@@ -154,6 +157,19 @@ a:focus-visible, .btn:focus-visible { outline: 3px solid var(--saffron); outline
 .tool b { font-weight: 700; line-height: 1.3; }
 .tool span { color: var(--muted); font-size: var(--step--1); line-height: 1.45; }
 
+
+/* POZIOMY WSPARCIA */
+.levels { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.level { border-radius: var(--radius); padding: 24px; display: grid; gap: 12px; align-content: start; }
+.level .badge { width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; font-family: var(--font-display); font-weight: 800; font-size: var(--step-2); color: #fff; }
+.level h3 { font-size: var(--step-2); }
+.level .who { font-weight: 700; }
+.level ul { margin: 0; padding-left: 1.1em; display: grid; gap: 6px; color: var(--muted); }
+.lv1 { background: var(--lv1-soft); } .lv1 .badge { background: var(--lv1); } .lv1 h3 { color: var(--lv1-ink); }
+.lv2 { background: var(--lv2-soft); } .lv2 .badge { background: var(--lv2); } .lv2 h3 { color: var(--lv2-ink); }
+.lv3 { background: var(--lv3-soft); } .lv3 .badge { background: var(--lv3); } .lv3 h3 { color: var(--lv3-ink); }
+@media (max-width: 860px) { .levels { grid-template-columns: minmax(0, 1fr); } }
+
 /* SMART przykład */
 .smart { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 48px); align-items: start; }
 .goal {
@@ -239,7 +255,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: s
 
     <div class="facts">
       <div class="fact"><b>3</b><span>moduły: prawo i organizacja, diagnoza, dokumentacja</span></div>
-      <div class="fact"><b>10</b><span>bloków tematycznych prowadzących od orzeczenia do ewaluacji</span></div>
+      <div class="fact"><b>11</b><span>bloków tematycznych prowadzących od orzeczenia do ewaluacji</span></div>
       <div class="fact"><b>7</b><span>narzędzi obserwacji pogłębionej, od ICF-CY po „głos dziecka”</span></div>
       <div class="fact"><b>2×</b><span>w roku szkolnym zespół ocenia efektywność pomocy i modyfikuje IPET</span></div>
     </div>
@@ -289,7 +305,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: s
   <div class="wrap">
     <div class="section-head">
       <p class="eyebrow">Program szkolenia</p>
-      <h2 id="program-h">Dziesięć kroków od orzeczenia do ewaluacji</h2>
+      <h2 id="program-h">Jedenaście kroków od orzeczenia do ewaluacji</h2>
       <p>Kolejność bloków odpowiada kolejności pracy zespołu nad dokumentacją dziecka.</p>
     </div>
 
@@ -342,6 +358,17 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: s
         <li class="block">
           <span class="num">04</span>
           <div>
+            <h4>Rola obserwacji w WOPF – obszary ICF w nowym orzeczeniu</h4>
+            <ul>
+              <li>Jak obserwacja dziecka w grupie zasila opis funkcjonowania w ujęciu biopsychospołecznym.</li>
+              <li>Obszary ICF-CY, w których zespół opisuje trudności, zasoby oraz bariery i ułatwienia w otoczeniu dziecka:</li>
+            </ul>
+            <ul class="tools"><li class="tool"><span class="letter">ICF: b, s</span><b>Funkcje i struktury ciała</b></li><li class="tool"><span class="letter">ICF: d</span><b>Aktywność i uczestnictwo</b></li><li class="tool"><span class="letter">ICF: e</span><b>Czynniki środowiskowe</b></li><li class="tool"><span class="letter">ICF: opis kontekstu</span><b>Czynniki osobowe</b></li></ul>
+          </div>
+        </li>
+        <li class="block">
+          <span class="num">05</span>
+          <div>
             <h4>Obserwacja podstawowa – Kwestionariusz Przedszkolnej Oceny Funkcjonalnej</h4>
             <ul>
               <li>9 obszarów oceny, ze szczególnym uwzględnieniem funkcjonowania dziecka w zabawie swobodnej na tle grupy neurotypowej.</li>
@@ -349,7 +376,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: s
           </div>
         </li>
         <li class="block">
-          <span class="num">05</span>
+          <span class="num">06</span>
           <div>
             <h4>Obserwacja pogłębiona – kliniczna i środowiskowa</h4>
             <ul class="tools">
@@ -372,9 +399,9 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: s
         <h3>Konstruowanie dokumentacji i zarządzanie procesem</h3>
         <p>Synteza, dostosowania, cele, ewaluacja i rodzice.</p>
       </div>
-      <ol class="blocks" start="6">
+      <ol class="blocks" start="7">
         <li class="block">
-          <span class="num">06</span>
+          <span class="num">07</span>
           <div>
             <h4>WOPF – wielospecjalistyczna synteza danych</h4>
             <ul>
@@ -383,7 +410,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: s
           </div>
         </li>
         <li class="block">
-          <span class="num">07</span>
+          <span class="num">08</span>
           <div>
             <h4>Zalecenia z orzeczenia a realia placówki</h4>
             <ul>
@@ -392,7 +419,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: s
           </div>
         </li>
         <li class="block">
-          <span class="num">08</span>
+          <span class="num">09</span>
           <div>
             <h4>IPET – zakres dostosowań i zintegrowane działania</h4>
             <ul>
@@ -403,7 +430,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: s
           </div>
         </li>
         <li class="block">
-          <span class="num">09</span>
+          <span class="num">10</span>
           <div>
             <h4>Ewaluacja – ocena efektywności działań (min. 2 razy w roku)</h4>
             <ul>
@@ -412,7 +439,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: s
           </div>
         </li>
         <li class="block">
-          <span class="num">10</span>
+          <span class="num">11</span>
           <div>
             <h4>Partnerstwo z rodzicami</h4>
             <ul>
@@ -426,10 +453,40 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: s
   </div>
 </section>
 
+<section class="section" aria-labelledby="poziomy-h">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Model wsparcia</p>
+      <h2 id="poziomy-h">3 poziomy wsparcia dziecka w przedszkolu</h2>
+      <p>Pokazujemy, jak działania z IPET łączą się ze wsparciem całej grupy, żeby dziecko z orzeczeniem korzystało z każdego poziomu.</p>
+    </div>
+    <div class="levels">
+      <div class="level lv1">
+        <span class="badge">1</span>
+        <h3>Uniwersalny</h3>
+        <p class="who">Dla wszystkich dzieci w grupie</p>
+        <ul><li>czytelny, obrazkowy plan dnia</li><li>sala dostosowana sensorycznie, kąciki wyciszenia</li><li>zabawy wspierające relacje rówieśnicze</li></ul>
+      </div>
+      <div class="level lv2">
+        <span class="badge">2</span>
+        <h3>Ukierunkowany</h3>
+        <p class="who">Dla dzieci z rozpoznanymi potrzebami</p>
+        <ul><li>pomoc psychologiczno-pedagogiczna</li><li>zajęcia w małych grupach</li><li>obserwacja i ocena efektywności działań</li></ul>
+      </div>
+      <div class="level lv3">
+        <span class="badge">3</span>
+        <h3>Specjalistyczny</h3>
+        <p class="who">Dla dziecka z orzeczeniem</p>
+        <ul><li>WOPF i IPET opracowane przez zespół</li><li>zajęcia rewalidacyjne i wsparcie specjalistów</li><li>komunikacja wspomagająca (AAC)</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section" aria-labelledby="smart-h">
   <div class="wrap smart">
     <div class="section-head" style="margin-bottom:0">
-      <p class="eyebrow">Warsztat z blokiem 08</p>
+      <p class="eyebrow">Warsztat z blokiem 09</p>
       <h2 id="smart-h">Cel SMART na miarę przedszkolaka</h2>
       <p>Na zajęciach przepisujemy ogólne zalecenia w cele, które da się zaobserwować w zwykłym dniu grupy, a potem rzetelnie ocenić na spotkaniu zespołu.</p>
     </div>
@@ -456,12 +513,12 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: s
         <p>Rozdzielamy role nauczyciela wychowania przedszkolnego i nauczyciela współorganizującego kształcenie. To w integracji obszar kluczowy i najczęstsze źródło problemów organizacyjnych.</p>
       </div>
       <div class="diff">
-        <span class="tag">Blok 05a</span>
+        <span class="tag">Blok 06a</span>
         <h3>Model ICF-CY w praktyce</h3>
         <p>Profil biopsychospołeczny według Międzynarodowej Klasyfikacji Funkcjonowania, która wyznacza światowe standardy orzecznicze i coraz częściej pojawia się w prawodawstwie.</p>
       </div>
       <div class="diff">
-        <span class="tag">Blok 08</span>
+        <span class="tag">Blok 09</span>
         <h3>Dziecko w relacji z grupą</h3>
         <p>IPET w przedszkolu integracyjnym nie skupia się na dziecku w izolacji. Uwypuklamy adaptację przestrzeni i działania rówieśnicze.</p>
       </div>

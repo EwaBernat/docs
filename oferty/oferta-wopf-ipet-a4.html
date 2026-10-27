@@ -24,7 +24,7 @@ h1, h2, h3, h4 { font-family: var(--d); line-height: 1.12; }
 /* nagłówek */
 header { background: var(--spruce); color: var(--on); padding: 8mm 12mm 6.5mm; display: grid; grid-template-columns: 1fr 52mm; gap: 8mm; align-items: end; }
 header .eyebrow { color: var(--saffron); }
-header h1 { font-size: 16pt; font-weight: 800; line-height: 1.16; margin-top: 2.5mm; letter-spacing: -.01em; }
+header h1 { font-size: 15pt; font-weight: 800; line-height: 1.16; margin-top: 2.5mm; letter-spacing: -.01em; }
 header h1 span { color: var(--saffron); }
 header .meta { display: flex; flex-wrap: wrap; gap: 2mm; margin-top: 3.5mm; }
 header .meta span { border: 1px solid rgba(244,250,247,.4); border-radius: 5mm; padding: .8mm 3mm; font-size: 8pt; }
@@ -45,7 +45,7 @@ header .meta .time { background: var(--saffron); border-color: var(--saffron); c
 .step p { font-size: 7.3pt; color: var(--muted); margin-top: .8mm; line-height: 1.32; }
 
 /* treść */
-main { display: grid; grid-template-columns: 1fr 64mm; gap: 6mm; padding: 4mm 12mm 0; min-height: 0; }
+main { display: grid; grid-template-columns: 1fr 60mm; gap: 6mm; padding: 4mm 12mm 0; min-height: 0; }
 .mod { margin-bottom: 2.4mm; }
 .mod-head { display: flex; align-items: baseline; gap: 2.5mm; border-bottom: 1.4px solid var(--ink); padding-bottom: 1mm; margin-bottom: 1.6mm; }
 .mod-head .r { font-family: var(--d); font-weight: 800; font-size: 15pt; color: var(--spruce); line-height: 1; }
@@ -55,6 +55,14 @@ main { display: grid; grid-template-columns: 1fr 64mm; gap: 6mm; padding: 4mm 12
 .num { font-family: var(--m); font-size: 7.6pt; color: var(--spruce); padding-top: .3mm; }
 .blk h4 { font-size: 8.6pt; font-weight: 600; }
 .blk p { color: var(--muted); font-size: 7.6pt; }
+.tools.icf { grid-template-columns: repeat(4, 1fr); }
+.lv { display: grid; grid-template-columns: 6.5mm 1fr; gap: 2mm; align-items: start; padding: 1.8mm 2mm; border-radius: 1.8mm; margin-top: 1.4mm; }
+.lv i { font-style: normal; font-family: var(--d); font-weight: 800; font-size: 10pt; color: #fff; width: 6.5mm; height: 6.5mm; border-radius: 50%; display: grid; place-items: center; }
+.lv b { display: block; font-size: 8pt; line-height: 1.2; }
+.lv span { display: block; font-size: 7pt; line-height: 1.28; color: var(--muted); margin-top: .4mm; }
+.lv1 { background: #e2f1e7; } .lv1 i { background: #3a9a63; } .lv1 b { color: #23683f; }
+.lv2 { background: #fbefd3; } .lv2 i { background: #d99a1e; } .lv2 b { color: #8a5d06; }
+.lv3 { background: #fbe3dc; } .lv3 i { background: #d0583f; } .lv3 b { color: #9c3520; }
 .tools { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2mm; margin-top: 1.4mm; }
 .tool { background: var(--surface); border: 1px solid var(--line); border-radius: 1.6mm; padding: .9mm 1.8mm; font-size: 7.2pt; line-height: 1.25; }
 .tool b { font-weight: 700; }
@@ -110,7 +118,7 @@ footer p { font-size: 7.6pt; color: var(--muted); margin-top: .8mm; }
 
   <main>
     <div>
-      <p class="eyebrow" style="margin-bottom:2mm">Program szkolenia · 3 moduły · 10 bloków</p>
+      <p class="eyebrow" style="margin-bottom:2mm">Program szkolenia · 3 moduły · 11 bloków</p>
 
       <div class="mod">
         <div class="mod-head"><span class="r">I</span><h2>Aspekty prawno-organizacyjne</h2></div>
@@ -121,8 +129,9 @@ footer p { font-size: 7.6pt; color: var(--muted); margin-top: .8mm; }
 
       <div class="mod">
         <div class="mod-head"><span class="r">II</span><h2>Diagnoza i obserwacja dziecka w grupie</h2></div>
-        <div class="blk"><span class="num">04</span><div><h4>Obserwacja podstawowa – Kwestionariusz Przedszkolnej Oceny Funkcjonalnej</h4><p>9 obszarów oceny, ze szczególnym uwzględnieniem zabawy swobodnej na tle grupy neurotypowej.</p></div></div>
-        <div class="blk"><span class="num">05</span><div><h4>Obserwacja pogłębiona – kliniczna i środowiskowa</h4>
+        <div class="blk"><span class="num">04</span><div><h4>Rola obserwacji w WOPF – obszary ICF w nowym orzeczeniu</h4><div class="tools icf"><div class="tool"><b>Funkcje i struktury ciała</b> <span>(b, s)</span></div><div class="tool"><b>Aktywność i uczestnictwo</b> <span>(d)</span></div><div class="tool"><b>Czynniki środowiskowe</b> <span>(e)</span></div><div class="tool"><b>Czynniki osobowe</b> <span>(opis kontekstu)</span></div></div></div></div>
+        <div class="blk"><span class="num">05</span><div><h4>Obserwacja podstawowa – Kwestionariusz Przedszkolnej Oceny Funkcjonalnej</h4><p>9 obszarów oceny, zabawa swobodna na tle grupy neurotypowej.</p></div></div>
+        <div class="blk"><span class="num">06</span><div><h4>Obserwacja pogłębiona – kliniczna i środowiskowa</h4>
           <div class="tools">
             <div class="tool"><i>a)</i><b>ICF-CY</b> <span>profil biopsychospołeczny</span></div>
             <div class="tool"><i>b)</i><b>Karta ABC / FBA</b> <span>zachowania trudne</span></div>
@@ -137,29 +146,26 @@ footer p { font-size: 7.6pt; color: var(--muted); margin-top: .8mm; }
 
       <div class="mod">
         <div class="mod-head"><span class="r">III</span><h2>Konstruowanie dokumentacji i zarządzanie procesem</h2></div>
-        <div class="blk"><span class="num">06</span><div><h4>WOPF – wielospecjalistyczna synteza danych</h4><p>Przełożenie informacji na trudności i zasoby dziecka w środowisku integracyjnym.</p></div></div>
-        <div class="blk"><span class="num">07</span><div><h4>Zalecenia z orzeczenia a realia placówki</h4><p>Zalecenia PPP przełożone na warunki przestrzenne i kadrowe grupy.</p></div></div>
-        <div class="blk"><span class="num">08</span><div><h4>IPET – zakres dostosowań i zintegrowane działania</h4><p>Metody, formy i przestrzeń (kąciki wyciszenia), cele SMART, integracja z rówieśnikami.</p></div></div>
-        <div class="blk"><span class="num">09</span><div><h4>Ewaluacja – ocena efektywności (min. 2 razy w roku)</h4><p>Modyfikacja IPET na podstawie wyników i zmiany potrzeb dziecka.</p></div></div>
-        <div class="blk"><span class="num">10</span><div><h4>Partnerstwo z rodzicami</h4><p>Podpisy i zatwierdzanie dokumentacji; zeszyty korespondencji, konsultacje.</p></div></div>
+        <div class="blk"><span class="num">07</span><div><h4>WOPF – wielospecjalistyczna synteza danych</h4><p>Przełożenie informacji na trudności i zasoby dziecka w środowisku integracyjnym.</p></div></div>
+        <div class="blk"><span class="num">08</span><div><h4>Zalecenia z orzeczenia a realia placówki</h4><p>Zalecenia PPP przełożone na warunki przestrzenne i kadrowe grupy.</p></div></div>
+        <div class="blk"><span class="num">09</span><div><h4>IPET – zakres dostosowań i zintegrowane działania</h4><p>Metody, formy i przestrzeń (kąciki wyciszenia), cele SMART, integracja z rówieśnikami.</p></div></div>
+        <div class="blk"><span class="num">10</span><div><h4>Ewaluacja – ocena efektywności (min. 2 razy w roku)</h4><p>Modyfikacja IPET na podstawie wyników i zmiany potrzeb dziecka.</p></div></div>
+        <div class="blk"><span class="num">11</span><div><h4>Partnerstwo z rodzicami</h4><p>Podpisy i zatwierdzanie dokumentacji; zeszyty korespondencji, konsultacje.</p></div></div>
       </div>
     </div>
 
     <aside>
+      <div class="card">
+        <p class="eyebrow">3 poziomy wsparcia</p>
+        <div class="lv lv1"><i>1</i><div><b>Uniwersalny</b><span>Dla wszystkich dzieci w grupie: czytelny plan dnia, dostosowana sala, kąciki wyciszenia.</span></div></div>
+        <div class="lv lv2"><i>2</i><div><b>Ukierunkowany</b><span>Dla dzieci z rozpoznanymi potrzebami: pomoc psychologiczno-pedagogiczna, zajęcia w małych grupach.</span></div></div>
+        <div class="lv lv3"><i>3</i><div><b>Specjalistyczny</b><span>Dla dziecka z orzeczeniem: WOPF, IPET, zajęcia rewalidacyjne, wsparcie specjalistów i AAC.</span></div></div>
+      </div>
       <div class="card goal">
         <p class="eyebrow">Warsztat · cel SMART</p>
         <q style="margin-top:1.6mm">Zalecenia z orzeczenia zamieniamy w cele, które da się zaobserwować w zwykłym dniu grupy i rzetelnie ocenić na spotkaniu zespołu.</q>
         <div class="smart">
           <div><b>S</b>skonkreti&shy;zowany</div><div><b>M</b>mierzalny</div><div><b>A</b>osiągalny</div><div><b>R</b>istotny</div><div><b>T</b>określony w czasie</div>
-        </div>
-      </div>
-
-      <div class="card">
-        <p class="eyebrow">Co wyróżnia program</p>
-        <div class="diffs" style="margin-top:1.8mm">
-          <div><b>Dwóch nauczycieli, jeden plan</b>Role nauczyciela przedszkola i nauczyciela współorganizującego.</div>
-          <div><b>Model ICF-CY w praktyce</b>Standard orzeczniczy i diagnostyczny na świecie.</div>
-          <div><b>Dziecko w relacji z grupą</b>Adaptacja przestrzeni i działania rówieśnicze.</div>
         </div>
       </div>
 
