@@ -27,7 +27,7 @@ header .eyebrow { color: var(--saffron); }
 header h1 { font-size: 15pt; font-weight: 800; line-height: 1.16; margin-top: 2.5mm; letter-spacing: -.01em; }
 header h1 span { color: var(--saffron); }
 header .meta { display: flex; flex-wrap: wrap; gap: 2mm; margin-top: 3.5mm; }
-header .meta span { border: 1px solid rgba(244,250,247,.4); border-radius: 5mm; padding: .8mm 3mm; font-size: 8pt; }
+header .meta span { border: 1px solid rgba(244,250,247,.4); border-radius: 5mm; padding: .8mm 2.6mm; font-size: 7.8pt; white-space: nowrap; }
 header .meta .time { background: var(--saffron); border-color: var(--saffron); color: var(--ink); font-weight: 700; }
 .law { border: 1px solid rgba(244,250,247,.35); border-radius: 3mm; padding: 3mm 3.5mm; }
 .law .p { font-family: var(--d); font-size: 18pt; color: var(--saffron); font-weight: 800; line-height: 1; }
@@ -45,7 +45,7 @@ header .meta .time { background: var(--saffron); border-color: var(--saffron); c
 .step p { font-size: 7.3pt; color: var(--muted); margin-top: .8mm; line-height: 1.32; }
 
 /* treść */
-main { display: grid; grid-template-columns: 1fr 60mm; gap: 6mm; padding: 4mm 12mm 0; min-height: 0; }
+main { display: grid; grid-template-columns: 1fr 55mm; gap: 5mm; padding: 4mm 12mm 0; min-height: 0; }
 .mod { margin-bottom: 2.4mm; }
 .mod-head { display: flex; align-items: baseline; gap: 2.5mm; border-bottom: 1.4px solid var(--ink); padding-bottom: 1mm; margin-bottom: 1.6mm; }
 .mod-head .r { font-family: var(--d); font-weight: 800; font-size: 15pt; color: var(--spruce); line-height: 1; }
@@ -64,10 +64,10 @@ main { display: grid; grid-template-columns: 1fr 60mm; gap: 6mm; padding: 4mm 12
 .lv2 { background: #fbefd3; } .lv2 i { background: #d99a1e; } .lv2 b { color: #8a5d06; }
 .lv3 { background: #fbe3dc; } .lv3 i { background: #d0583f; } .lv3 b { color: #9c3520; }
 .tools { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2mm; margin-top: 1.4mm; }
-.tool { background: var(--surface); border: 1px solid var(--line); border-radius: 1.6mm; padding: .9mm 1.8mm; font-size: 7.2pt; line-height: 1.25; }
-.tool b { font-weight: 700; }
-.tool i { font-style: normal; font-family: var(--m); color: var(--spruce); font-size: 6.6pt; margin-right: .8mm; }
-.tool span { color: var(--muted); }
+.tool { background: var(--spruce-soft); border: 1px solid #b9d3cb; border-radius: 1.6mm; padding: 1mm 2mm; font-size: 8pt; line-height: 1.25; }
+.tool b { font-weight: 700; color: var(--ink); }
+.tool i { font-style: normal; font-family: var(--m); font-weight: 500; color: var(--spruce); font-size: 7.6pt; margin-right: 1mm; }
+.tool span { color: #2f4248; }
 
 aside { display: grid; gap: 3.5mm; align-content: start; }
 .card { background: var(--surface); border: 1px solid var(--line); border-radius: 2.5mm; padding: 3.2mm 3.5mm; }
@@ -88,6 +88,7 @@ footer { margin: 3mm 12mm 7mm; border: 1.4px solid var(--ink); border-radius: 3m
 footer h2 { font-size: 13pt; }
 footer p { font-size: 7.6pt; color: var(--muted); margin-top: .8mm; }
 .formats { display: flex; gap: 1.6mm; margin-top: 1.8mm; flex-wrap: wrap; }
+.formats span.alt { background: var(--spruce-soft); color: var(--spruce); }
 .formats span { background: var(--saffron-soft); border-radius: 5mm; padding: 1mm 3mm; font-size: 8pt; font-weight: 600; color: var(--spruce); }
 .contact { background: var(--spruce); color: var(--on); border-radius: 2.5mm; padding: 2mm 5mm; text-align: center; }
 .contact small { display: block; font-family: var(--m); font-size: 6.6pt; letter-spacing: .07em; text-transform: uppercase; color: var(--saffron); }
@@ -101,7 +102,7 @@ footer p { font-size: 7.6pt; color: var(--muted); margin-top: .8mm; }
     <div>
       <p class="eyebrow">Szkolenie dla rad pedagogicznych · przedszkola i oddziały integracyjne</p>
       <h1><span>Wielospecjalistyczna Ocena Poziomu Funkcjonowania</span> i Konstrukcja Indywidualnego Programu Edukacyjno-Terapeutycznego w oparciu o wybrane narzędzia obserwacji funkcjonalnej</h1>
-      <p class="meta"><span class="time">Czas realizacji: 2 godziny</span><span>WOPF · IPET · obserwacja funkcjonalna</span></p>
+      <p class="meta"><span class="time">Czas realizacji: 2 godziny</span><span>Online / stacjonarnie – w ramach indywidualnych uzgodnień</span></p>
     </div>
     <div class="law">
       <div class="p">§</div>
@@ -124,19 +125,19 @@ footer p { font-size: 7.6pt; color: var(--muted); margin-top: .8mm; }
       <div class="mod">
         <div class="mod-head"><span class="r">I</span><h2>Aspekty prawno-organizacyjne</h2></div>
         <div class="blk"><span class="num">01</span><div><h4>Podstawy prawne tworzenia dokumentacji WOPF i IPET</h4><p>Aktualne rozporządzenia MEN; terminarz: 30 dni na IPET, spotkania zespołu min. 2 razy w roku.</p></div></div>
-        <div class="blk"><span class="num">02</span><div><h4>Powołanie i synergia działania zespołu w grupie integracyjnej</h4><p>Nauczyciel wychowania przedszkolnego i nauczyciel współorganizujący; logopeda, psycholog, fizjoterapeuta w codziennej rutynie grupy.</p></div></div>
+        <div class="blk"><span class="num">02</span><div><h4>Powołanie i synergia działania zespołu w grupie integracyjnej</h4><p>Nauczyciel przedszkola i współorganizujący; specjaliści w codziennej rutynie grupy.</p></div></div>
         <div class="blk"><span class="num">03</span><div><h4>Metryczka – podstawowe dane</h4><p>Analiza orzeczenia o potrzebie kształcenia specjalnego wydanego przez PPP.</p></div></div>
       </div>
 
       <div class="mod">
         <div class="mod-head"><span class="r">II</span><h2>Diagnoza i obserwacja dziecka w grupie</h2></div>
-        <div class="blk"><span class="num">04</span><div><h4>Rola obserwacji w WOPF – obszary ICF w nowym orzeczeniu</h4><div class="tools icf"><div class="tool"><b>Funkcje i struktury ciała</b> <span>(b, s)</span></div><div class="tool"><b>Aktywność i uczestnictwo</b> <span>(d)</span></div><div class="tool"><b>Czynniki środowiskowe</b> <span>(e)</span></div><div class="tool"><b>Czynniki osobowe</b> <span>(opis kontekstu)</span></div></div></div></div>
+        <div class="blk"><span class="num">04</span><div><h4>Rola obserwacji w WOPF – obszary ICF w nowym orzeczeniu</h4><div class="tools icf"><div class="tool"><b>Funkcje i struktury ciała</b></div><div class="tool"><b>Aktywność i uczestnictwo</b></div><div class="tool"><b>Czynniki środowiskowe</b></div><div class="tool"><b>Czynniki osobowe</b></div></div></div></div>
         <div class="blk"><span class="num">05</span><div><h4>Obserwacja podstawowa – Kwestionariusz Przedszkolnej Oceny Funkcjonalnej</h4><p>9 obszarów oceny, zabawa swobodna na tle grupy neurotypowej.</p></div></div>
         <div class="blk"><span class="num">06</span><div><h4>Obserwacja pogłębiona – kliniczna i środowiskowa</h4>
           <div class="tools">
             <div class="tool"><i>a)</i><b>ICF-CY</b> <span>profil biopsychospołeczny</span></div>
             <div class="tool"><i>b)</i><b>Karta ABC / FBA</b> <span>zachowania trudne</span></div>
-            <div class="tool"><i>c)</i><b>Profil sensoryczny</b> <span>sala a przestymulowanie</span></div>
+            <div class="tool"><i>c)</i><b>Profil sensoryczny</b> <span>przestymulowanie</span></div>
             <div class="tool"><i>d)</i><b>Teoria umysłu</b> <span>konflikty rówieśnicze</span></div>
             <div class="tool"><i>e)</i><b>Mowa i komunikacja</b> <span>AAC w grupie</span></div>
             <div class="tool"><i>f)</i><b>PEP-R i inne</b> <span>strefa najbliższego rozwoju</span></div>
@@ -186,7 +187,7 @@ footer p { font-size: 7.6pt; color: var(--muted); margin-top: .8mm; }
     <div>
       <p class="eyebrow">Szkolenie w placówce przedszkolnej · 2 godziny</p>
       <h2 style="margin-top:1mm">Dokumentacja dziecka w przedszkolu po nowemu</h2>
-      <div class="formats"><span>W pakiecie: przykłady gotowych druków WOPF i IPET</span></div>
+      <div class="formats"><span>W pakiecie: przykłady gotowych druków WOPF i IPET</span><span class="alt">Online / stacjonarnie</span></div>
     </div>
     <div class="contact"><small>Zapisy i informacje</small><b>tel. 602 108 648</b><em>pctp@hot.pl</em></div>
   </footer>
