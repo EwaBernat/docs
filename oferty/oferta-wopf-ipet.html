@@ -1,0 +1,522 @@
+<title>WOPF i IPET w przedszkolu integracyjnym</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: jedna kolumna czytania (~68ch) z szerszymi pasami dla terminarza i siatki narzędzi; moduły jako trzy rozdziały programu */
+:root {
+  --bg: #f2f5f3;
+  --surface: #ffffff;
+  --ink: #18262c;
+  --muted: #55666c;
+  --line: #d5dfdb;
+  --spruce: #1f5c55;
+  --spruce-soft: #e1ece8;
+  --saffron: #d99a1e;
+  --saffron-soft: #fbefd3;
+  --on-spruce: #f4faf7;
+
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --step--1: 0.875rem;
+  --step-0: 1.0625rem;
+  --step-1: 1.3rem;
+  --step-2: 1.7rem;
+  --step-3: 2.3rem;
+  --step-4: clamp(2.3rem, 5.2vw, 3.6rem);
+  --radius: 14px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111a1d; --surface: #182428; --ink: #e6eeeb; --muted: #9db0ad; --line: #2b3b3f;
+    --spruce: #6cc0b2; --spruce-soft: #1d3633; --saffron: #f0b94a; --saffron-soft: #3a2f17; --on-spruce: #0e1a19;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111a1d; --surface: #182428; --ink: #e6eeeb; --muted: #9db0ad; --line: #2b3b3f;
+  --spruce: #6cc0b2; --spruce-soft: #1d3633; --saffron: #f0b94a; --saffron-soft: #3a2f17; --on-spruce: #0e1a19;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap {
+  max-width: 1080px;
+  margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.12; text-wrap: balance; margin: 0; letter-spacing: -0.01em; }
+p { margin: 0; }
+a { color: var(--spruce); }
+a:focus-visible, .btn:focus-visible { outline: 3px solid var(--saffron); outline-offset: 3px; border-radius: 6px; }
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--spruce);
+}
+.section { padding-block: clamp(48px, 7vw, 88px); }
+.section + .section { border-top: 1px solid var(--line); }
+.section-head { display: grid; gap: 12px; max-width: 46rem; margin-bottom: 36px; }
+.section-head h2 { font-size: var(--step-3); }
+.section-head p { color: var(--muted); font-size: var(--step-1); line-height: 1.5; }
+
+/* HERO */
+.hero { padding-block: clamp(40px, 7vw, 84px) clamp(36px, 5vw, 60px); }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: clamp(28px, 4vw, 56px); align-items: end; }
+.hero h1 { font-size: var(--step-4); font-weight: 800; margin-top: 18px; }
+.hero h1 .hl { color: var(--spruce); }
+.lede { margin-top: 22px; font-size: var(--step-1); line-height: 1.5; color: var(--muted); max-width: 40rem; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 22px; border-radius: 999px;
+  font-weight: 700; text-decoration: none; font-size: var(--step-0);
+  transition: transform .15s ease, background-color .15s ease;
+}
+.btn-primary { background: var(--spruce); color: var(--on-spruce); }
+.btn-primary:hover { transform: translateY(-1px); }
+.btn-ghost { color: var(--ink); border: 1.5px solid var(--line); }
+.btn-ghost:hover { border-color: var(--spruce); }
+@media (prefers-reduced-motion: reduce) { .btn { transition: none; } .btn-primary:hover { transform: none; } }
+
+.legal-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 22px 22px 20px;
+  display: grid; gap: 12px;
+}
+.legal-card .para { font-family: var(--font-display); font-size: 3rem; line-height: 1; color: var(--saffron); font-weight: 700; }
+.legal-card h3 { font-size: var(--step-0); font-family: var(--font-body); font-weight: 700; line-height: 1.4; }
+.legal-card .cite { font-family: var(--font-mono); font-size: var(--step--1); color: var(--muted); }
+
+.facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; margin-top: clamp(36px, 5vw, 56px); border-top: 1.5px solid var(--ink); }
+.fact { padding: 18px 18px 4px 0; display: grid; gap: 4px; }
+.fact + .fact { padding-left: 18px; border-left: 1px solid var(--line); }
+.fact b { font-family: var(--font-display); font-size: var(--step-3); font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; }
+.fact span { color: var(--muted); font-size: var(--step--1); line-height: 1.4; }
+
+/* TERMINARZ */
+.timeline-band { background: var(--spruce); color: var(--on-spruce); }
+.timeline-band .eyebrow { color: var(--saffron); }
+.timeline-band .section-head p { color: var(--on-spruce); opacity: .82; }
+.timeline-scroll { overflow-x: auto; padding-bottom: 6px; }
+.timeline { display: grid; grid-template-columns: repeat(4, minmax(200px, 1fr)); gap: 0; list-style: none; margin: 0; padding: 0; position: relative; }
+.timeline li { padding: 0 20px 0 0; display: grid; gap: 8px; align-content: start; position: relative; }
+.timeline .dot { width: 18px; height: 18px; border-radius: 50%; background: var(--saffron); position: relative; z-index: 1; }
+.timeline li::before { content: ""; position: absolute; top: 8px; left: 18px; right: 0; height: 2px; background: currentColor; opacity: .3; }
+.timeline li:last-child::before { display: none; }
+.timeline .when { font-family: var(--font-mono); font-size: var(--step--1); letter-spacing: .04em; text-transform: uppercase; margin-top: 10px; color: var(--saffron); }
+.timeline h3 { font-size: var(--step-1); }
+.timeline p { opacity: .85; font-size: var(--step--1); line-height: 1.5; }
+.footnote { margin-top: 28px; font-size: var(--step--1); opacity: .8; max-width: 52rem; font-family: var(--font-mono); line-height: 1.6; }
+
+/* PROGRAM */
+.module { display: grid; grid-template-columns: minmax(0, 260px) minmax(0, 1fr); gap: clamp(20px, 4vw, 56px); padding-block: 36px; }
+.module + .module { border-top: 1px dashed var(--line); }
+.module-label { display: grid; gap: 8px; align-content: start; position: sticky; top: calc(env(safe-area-inset-top, 0px) + 20px); }
+.module-label .roman { font-family: var(--font-display); font-size: 4.2rem; font-weight: 800; line-height: .9; color: var(--spruce); }
+.module-label h3 { font-size: var(--step-1); }
+.module-label p { color: var(--muted); font-size: var(--step--1); }
+.blocks { display: grid; gap: 14px; list-style: none; padding: 0; margin: 0; }
+.block {
+  display: grid; grid-template-columns: 52px minmax(0, 1fr); gap: 16px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 20px 22px;
+}
+.block .num { font-family: var(--font-mono); font-weight: 500; font-size: var(--step-1); color: var(--spruce); line-height: 1.2; font-variant-numeric: tabular-nums; }
+.block h4 { font-family: var(--font-display); font-size: var(--step-1); font-weight: 700; margin: 0 0 8px; line-height: 1.2; text-wrap: balance; }
+.block ul { margin: 0; padding-left: 1.1em; display: grid; gap: 6px; }
+.block li::marker { color: var(--saffron); }
+.block li { padding-left: 2px; }
+.block .note { margin-top: 10px; font-size: var(--step--1); color: var(--muted); }
+
+.tools { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); gap: 10px; margin-top: 12px; list-style: none; padding: 0; }
+.tool { border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; display: grid; gap: 4px; background: var(--bg); }
+.tool .letter { font-family: var(--font-mono); font-size: var(--step--1); color: var(--spruce); font-weight: 500; }
+.tool b { font-weight: 700; line-height: 1.3; }
+.tool span { color: var(--muted); font-size: var(--step--1); line-height: 1.45; }
+
+/* SMART przykład */
+.smart { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 48px); align-items: start; }
+.goal {
+  background: var(--saffron-soft); border-radius: var(--radius); padding: 26px;
+  font-family: var(--font-display); font-size: var(--step-1); line-height: 1.4; font-weight: 500;
+}
+.goal small { display: block; font-family: var(--font-mono); font-size: var(--step--1); font-weight: 400; color: var(--muted); margin-bottom: 12px; letter-spacing: .04em; text-transform: uppercase; }
+.smart-list { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
+.smart-list li { display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.smart-list li:first-child { padding-top: 0; }
+.smart-list .letter { font-family: var(--font-display); font-weight: 800; font-size: var(--step-2); line-height: 1; color: var(--spruce); }
+.smart-list b { display: block; }
+.smart-list span { color: var(--muted); font-size: var(--step--1); }
+
+/* WYRÓŻNIKI */
+.diffs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.diff { border-top: 3px solid var(--spruce); padding-top: 18px; display: grid; gap: 10px; align-content: start; }
+.diff h3 { font-size: var(--step-1); }
+.diff p { color: var(--muted); }
+.diff .tag { font-family: var(--font-mono); font-size: var(--step--1); color: var(--spruce); }
+
+/* DLA KOGO + EFEKTY */
+.two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 48px); }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; display: grid; gap: 16px; align-content: start; }
+.panel h3 { font-size: var(--step-2); }
+.check { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.check li { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 10px; }
+.check li::before {
+  content: ""; width: 18px; height: 18px; margin-top: 4px; border-radius: 5px;
+  background: var(--spruce-soft); border: 1.5px solid var(--spruce);
+  -webkit-mask: none;
+}
+.check.ticks li::before { background: var(--spruce); box-shadow: inset 0 0 0 3px var(--surface); }
+
+/* CTA */
+.cta { background: var(--surface); border: 1.5px solid var(--ink); border-radius: calc(var(--radius) + 6px); padding: clamp(26px, 5vw, 48px); display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 28px; align-items: center; }
+.cta h2 { font-size: var(--step-3); }
+.cta p { color: var(--muted); margin-top: 12px; }
+.formats { display: grid; gap: 10px; }
+.format { display: flex; justify-content: space-between; gap: 12px; padding: 12px 16px; border-radius: 10px; background: var(--spruce-soft); flex-wrap: wrap; }
+.format b { font-weight: 700; }
+.format span { color: var(--muted); font-size: var(--step--1); }
+.contact-slot { margin-top: 18px; font-family: var(--font-mono); font-size: var(--step--1); color: var(--muted); border: 1.5px dashed var(--line); border-radius: 10px; padding: 12px 14px; }
+
+footer { padding-block: 32px 48px; color: var(--muted); font-size: var(--step--1); }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
+
+@media (max-width: 860px) {
+  .hero-grid, .smart, .two, .cta { grid-template-columns: minmax(0, 1fr); }
+  .diffs { grid-template-columns: minmax(0, 1fr); }
+  .module { grid-template-columns: minmax(0, 1fr); padding-block: 28px; }
+  .module-label { position: static; grid-template-columns: auto minmax(0, 1fr); column-gap: 16px; align-items: center; }
+  .module-label .roman { grid-row: span 2; font-size: 3.2rem; }
+  .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .fact:nth-child(3) { padding-left: 0; border-left: 0; }
+}
+@media (max-width: 480px) {
+  .block { grid-template-columns: minmax(0, 1fr); gap: 6px; padding: 18px; }
+}
+</style>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow">Szkolenie dla rad pedagogicznych · przedszkola i oddziały integracyjne</p>
+        <h1>Od obserwacji do <span class="hl">IPET-u</span>, który naprawdę działa w grupie</h1>
+        <p class="lede">Wielospecjalistyczna Ocena Poziomu Funkcjonowania i konstrukcja Indywidualnego Programu Edukacyjno-Terapeutycznego w oparciu o wybrane narzędzia obserwacji funkcjonalnej. Pokazujemy, jak zespół zbiera dane, łączy je w spójny WOPF i zamienia zalecenia z orzeczenia w konkretne działania w sali przedszkolnej.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#zapisy">Zapytaj o termin →</a>
+          <a class="btn btn-ghost" href="#program">Zobacz program</a>
+        </div>
+      </div>
+      <aside class="legal-card" aria-label="Podstawa prawna szkolenia">
+        <div class="para">§</div>
+        <h3>Rozporządzenie MEN z dnia 9 sierpnia 2017 r. w sprawie warunków organizowania kształcenia, wychowania i opieki dla dzieci i młodzieży niepełnosprawnych, niedostosowanych społecznie i zagrożonych niedostosowaniem społecznym</h3>
+        <p class="cite">Dz.U. z 2020 r. poz. 1309 ze zm.</p>
+      </aside>
+    </div>
+
+    <div class="facts">
+      <div class="fact"><b>3</b><span>moduły: prawo i organizacja, diagnoza, dokumentacja</span></div>
+      <div class="fact"><b>10</b><span>bloków tematycznych prowadzących od orzeczenia do ewaluacji</span></div>
+      <div class="fact"><b>7</b><span>narzędzi obserwacji pogłębionej, od ICF-CY po „głos dziecka”</span></div>
+      <div class="fact"><b>2×</b><span>w roku szkolnym zespół ocenia efektywność pomocy i modyfikuje IPET</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="section timeline-band" aria-labelledby="terminarz">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Terminarz ustawowy</p>
+      <h2 id="terminarz">Rok pracy zespołu w czterech krokach</h2>
+      <p>Uczestnicy wychodzą z gotowym harmonogramem: kto, co i do kiedy przygotowuje, żeby dokumentacja była zgodna z przepisami i nie powstawała w pośpiechu.</p>
+    </div>
+    <div class="timeline-scroll">
+      <ol class="timeline">
+        <li>
+          <span class="dot" aria-hidden="true"></span>
+          <p class="when">Start</p>
+          <h3>Orzeczenie trafia do przedszkola</h3>
+          <p>Dyrektor powołuje zespół, a rodzice otrzymują informację o terminie spotkania.</p>
+        </li>
+        <li>
+          <span class="dot" aria-hidden="true"></span>
+          <p class="when">Do 30 dni</p>
+          <h3>WOPF i IPET gotowe</h3>
+          <p>30 dni od złożenia orzeczenia albo do 30 września, gdy kształcenie specjalne zaczyna się z początkiem roku szkolnego.</p>
+        </li>
+        <li>
+          <span class="dot" aria-hidden="true"></span>
+          <p class="when">Min. 2× w roku</p>
+          <h3>Okresowa ocena WOPF</h3>
+          <p>Zespół ocenia funkcjonowanie dziecka i efektywność udzielanej pomocy psychologiczno-pedagogicznej.</p>
+        </li>
+        <li>
+          <span class="dot" aria-hidden="true"></span>
+          <p class="when">W miarę potrzeb</p>
+          <h3>Modyfikacja IPET</h3>
+          <p>Cele i dostosowania zmieniają się razem z dzieckiem, z udziałem rodziców.</p>
+        </li>
+      </ol>
+    </div>
+    <p class="footnote">§ 6 rozporządzenia: zespół opracowuje IPET po dokonaniu WOPF, a okresowej oceny dokonuje co najmniej dwa razy w roku szkolnym, uwzględniając ocenę efektywności pomocy psychologiczno-pedagogicznej.</p>
+  </div>
+</section>
+
+<section class="section" id="program" aria-labelledby="program-h">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Program szkolenia</p>
+      <h2 id="program-h">Dziesięć kroków od orzeczenia do ewaluacji</h2>
+      <p>Kolejność bloków odpowiada kolejności pracy zespołu nad dokumentacją dziecka.</p>
+    </div>
+
+    <article class="module">
+      <div class="module-label">
+        <span class="roman">I</span>
+        <h3>Aspekty prawno-organizacyjne</h3>
+        <p>Fundament: przepisy, terminy i ludzie.</p>
+      </div>
+      <ol class="blocks">
+        <li class="block">
+          <span class="num">01</span>
+          <div>
+            <h4>Podstawy prawne tworzenia dokumentacji WOPF i IPET</h4>
+            <ul>
+              <li>Aktualne rozporządzenia MEN dotyczące kształcenia specjalnego.</li>
+              <li>Terminarz ustawowy: 30 dni na IPET, spotkania zespołu co najmniej 2 razy w roku.</li>
+            </ul>
+          </div>
+        </li>
+        <li class="block">
+          <span class="num">02</span>
+          <div>
+            <h4>Powołanie i synergia działania zespołu w grupie integracyjnej</h4>
+            <ul>
+              <li>Współpraca nauczyciela wychowania przedszkolnego z nauczycielem współorganizującym kształcenie (pedagogiem specjalnym).</li>
+              <li>Rola logopedy, psychologa i fizjoterapeuty w codziennej rutynie grupy.</li>
+            </ul>
+          </div>
+        </li>
+        <li class="block">
+          <span class="num">03</span>
+          <div>
+            <h4>Metryczka – podstawowe dane</h4>
+            <ul>
+              <li>Analiza orzeczenia o potrzebie kształcenia specjalnego wydanego przez poradnię psychologiczno-pedagogiczną.</li>
+            </ul>
+          </div>
+        </li>
+      </ol>
+    </article>
+
+    <article class="module">
+      <div class="module-label">
+        <span class="roman">II</span>
+        <h3>Diagnoza i obserwacja dziecka w grupie</h3>
+        <p>Dane z sali, z zabawy i od samego dziecka.</p>
+      </div>
+      <ol class="blocks" start="4">
+        <li class="block">
+          <span class="num">04</span>
+          <div>
+            <h4>Obserwacja podstawowa – Kwestionariusz Przedszkolnej Oceny Funkcjonalnej</h4>
+            <ul>
+              <li>9 obszarów oceny, ze szczególnym uwzględnieniem funkcjonowania dziecka w zabawie swobodnej na tle grupy neurotypowej.</li>
+            </ul>
+          </div>
+        </li>
+        <li class="block">
+          <span class="num">05</span>
+          <div>
+            <h4>Obserwacja pogłębiona – kliniczna i środowiskowa</h4>
+            <ul class="tools">
+              <li class="tool"><span class="letter">a)</span><b>Profil biopsychospołeczny ICF-CY</b><span>Międzynarodowa Klasyfikacja Funkcjonowania dzieci i młodzieży.</span></li>
+              <li class="tool"><span class="letter">b)</span><b>Karta ABC / FBA</b><span>Stosowana analiza zachowania: zachowania trudne w przestrzeni przedszkolnej.</span></li>
+              <li class="tool"><span class="letter">c)</span><b>Profil sensoryczny</b><span>Przestrzeń sali przedszkolnej a przestymulowanie bodźcami.</span></li>
+              <li class="tool"><span class="letter">d)</span><b>Teoria umysłu (ToM)</b><span>W kontekście konfliktów rówieśniczych w wieku przedszkolnym.</span></li>
+              <li class="tool"><span class="letter">e)</span><b>Ocena mowy i komunikacji</b><span>Komunikacja z rówieśnikami, AAC w grupie integracyjnej.</span></li>
+              <li class="tool"><span class="letter">f)</span><b>Inne oceny funkcjonalne</b><span>Np. PEP-R dla dzieci ze spektrum autyzmu; wyznaczanie strefy najbliższego rozwoju.</span></li>
+              <li class="tool"><span class="letter">g)</span><b>„Głos dziecka”</b><span>Narzędzia obrazkowe i obserwacja preferencji przedszkolaka.</span></li>
+            </ul>
+          </div>
+        </li>
+      </ol>
+    </article>
+
+    <article class="module">
+      <div class="module-label">
+        <span class="roman">III</span>
+        <h3>Konstruowanie dokumentacji i zarządzanie procesem</h3>
+        <p>Synteza, dostosowania, cele, ewaluacja i rodzice.</p>
+      </div>
+      <ol class="blocks" start="6">
+        <li class="block">
+          <span class="num">06</span>
+          <div>
+            <h4>WOPF – wielospecjalistyczna synteza danych</h4>
+            <ul>
+              <li>Analiza zebranych informacji i przełożenie ich na konkretne trudności i zasoby dziecka w środowisku integracyjnym.</li>
+            </ul>
+          </div>
+        </li>
+        <li class="block">
+          <span class="num">07</span>
+          <div>
+            <h4>Zalecenia z orzeczenia a realia placówki</h4>
+            <ul>
+              <li>Transformacja zaleceń z poradni na warunki przestrzenne i kadrowe konkretnej grupy przedszkolnej.</li>
+            </ul>
+          </div>
+        </li>
+        <li class="block">
+          <span class="num">08</span>
+          <div>
+            <h4>IPET – zakres dostosowań i zintegrowane działania</h4>
+            <ul>
+              <li>Dostosowanie metod, form i przestrzeni, np. kąciki wyciszenia.</li>
+              <li>Cele SMART dopasowane do możliwości przedszkolaka.</li>
+              <li>Działania wspierające integrację z rówieśnikami.</li>
+            </ul>
+          </div>
+        </li>
+        <li class="block">
+          <span class="num">09</span>
+          <div>
+            <h4>Ewaluacja – ocena efektywności działań (min. 2 razy w roku)</h4>
+            <ul>
+              <li>Modyfikacja IPET na podstawie bieżących wyników i zmiany potrzeb dziecka.</li>
+            </ul>
+          </div>
+        </li>
+        <li class="block">
+          <span class="num">10</span>
+          <div>
+            <h4>Partnerstwo z rodzicami</h4>
+            <ul>
+              <li>Udział rodziców w tworzeniu dokumentacji: podpisy, zatwierdzanie.</li>
+              <li>Komunikacja dom – przedszkole integracyjne: zeszyty korespondencji, konsultacje.</li>
+            </ul>
+          </div>
+        </li>
+      </ol>
+    </article>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="smart-h">
+  <div class="wrap smart">
+    <div class="section-head" style="margin-bottom:0">
+      <p class="eyebrow">Warsztat z blokiem 08</p>
+      <h2 id="smart-h">Cel SMART na miarę przedszkolaka</h2>
+      <p>Na zajęciach przepisujemy ogólne zalecenia w cele, które da się zaobserwować w zwykłym dniu grupy, a potem rzetelnie ocenić na spotkaniu zespołu.</p>
+      <div class="goal">
+        <small>Przykład z warsztatu</small>
+        Do końca stycznia Ola podczas zabawy swobodnej w kąciku konstrukcyjnym zaprosi rówieśnika do wspólnej zabawy, używając karty AAC „Pobaw się ze mną”, co najmniej 3 razy w tygodniu.
+      </div>
+    </div>
+    <ul class="smart-list">
+      <li><span class="letter">S</span><div><b>Skonkretyzowany</b><span>Jedno zachowanie, jedna sytuacja: zaproszenie do zabawy w kąciku konstrukcyjnym.</span></div></li>
+      <li><span class="letter">M</span><div><b>Mierzalny</b><span>Co najmniej 3 razy w tygodniu, liczone w karcie obserwacji.</span></div></li>
+      <li><span class="letter">A</span><div><b>Osiągalny</b><span>Ola zna już kartę AAC i używa jej w kontakcie z dorosłym.</span></div></li>
+      <li><span class="letter">R</span><div><b>Istotny</b><span>Wynika z WOPF: dziecko bawi się obok rówieśników, ale nie inicjuje kontaktu.</span></div></li>
+      <li><span class="letter">T</span><div><b>Określony w czasie</b><span>Do końca stycznia, czyli do pierwszej okresowej oceny zespołu.</span></div></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="diff-h">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Co wyróżnia program</p>
+      <h2 id="diff-h">Zbudowany pod realia grupy integracyjnej</h2>
+    </div>
+    <div class="diffs">
+      <div class="diff">
+        <span class="tag">Blok 02</span>
+        <h3>Dwóch nauczycieli, jeden plan</h3>
+        <p>Rozdzielamy role nauczyciela wychowania przedszkolnego i nauczyciela współorganizującego kształcenie. To w integracji obszar kluczowy i najczęstsze źródło problemów organizacyjnych.</p>
+      </div>
+      <div class="diff">
+        <span class="tag">Blok 05a</span>
+        <h3>Model ICF-CY w praktyce</h3>
+        <p>Profil biopsychospołeczny według Międzynarodowej Klasyfikacji Funkcjonowania, która wyznacza światowe standardy orzecznicze i coraz częściej pojawia się w prawodawstwie.</p>
+      </div>
+      <div class="diff">
+        <span class="tag">Blok 08</span>
+        <h3>Dziecko w relacji z grupą</h3>
+        <p>IPET w przedszkolu integracyjnym nie skupia się na dziecku w izolacji. Uwypuklamy adaptację przestrzeni i działania rówieśnicze.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="dla-kogo">
+  <div class="wrap two">
+    <div class="panel">
+      <p class="eyebrow">Dla kogo</p>
+      <h3 id="dla-kogo">Zespoły, które piszą WOPF i IPET</h3>
+      <ul class="check">
+        <li>Nauczyciele wychowania przedszkolnego w grupach integracyjnych</li>
+        <li>Pedagodzy specjalni i nauczyciele współorganizujący kształcenie</li>
+        <li>Logopedzi, psycholodzy, fizjoterapeuci i terapeuci SI</li>
+        <li>Dyrektorzy i wicedyrektorzy odpowiedzialni za kształcenie specjalne</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <p class="eyebrow">Efekty</p>
+      <h3>Po szkoleniu uczestnicy potrafią</h3>
+      <ul class="check ticks">
+        <li>zaplanować pracę zespołu zgodnie z terminarzem z rozporządzenia</li>
+        <li>dobrać narzędzia obserwacji do potrzeb konkretnego dziecka</li>
+        <li>połączyć dane od specjalistów w spójny opis trudności i zasobów</li>
+        <li>przełożyć zalecenia poradni na warunki swojej sali i kadry</li>
+        <li>sformułować cele SMART i ocenić ich realizację podczas ewaluacji</li>
+        <li>włączyć rodziców w tworzenie i zatwierdzanie dokumentacji</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="zapisy" aria-labelledby="zapisy-h">
+  <div class="wrap">
+    <div class="cta">
+      <div>
+        <p class="eyebrow">Zapisy i organizacja</p>
+        <h2 id="zapisy-h">Zaproś szkolenie do swojego przedszkola</h2>
+        <p>Program dopasowujemy do grup i specjalistów w Twojej placówce. Skontaktuj się, aby ustalić termin, formę i wycenę.</p>
+        <p class="contact-slot">[ miejsce na dane kontaktowe: telefon · e-mail · strona ]</p>
+      </div>
+      <div class="formats">
+        <div class="format"><b>Rada szkoleniowa w placówce</b><span>cały zespół jednocześnie</span></div>
+        <div class="format"><b>Warsztat online</b><span>dla zespołów z kilku placówek</span></div>
+        <div class="format"><b>Superwizja dokumentacji</b><span>praca na przypadkach z Twojej grupy</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>WOPF i IPET w przedszkolu integracyjnym · oferta szkoleniowa</span>
+    <span>Podstawa: rozporządzenie MEN z 9.08.2017 r., Dz.U. z 2020 r. poz. 1309 ze zm.</span>
+  </div>
+</footer>
